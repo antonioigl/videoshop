@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Movie{% endblock %}
+
+{% block body %}
+
+    <div class="mb-3">
+        <a href="{{ path('dashboard') }}">Dashboard</a>
+    </div>
+
+    {% for flash_message in app.session.flashbag.get('message') %}
+        <div>
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.description) }}
+
+    <button type="submit">Save</button>
+    {{ form_end(form) }}
+{% endblock %}
